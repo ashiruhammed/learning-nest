@@ -22,9 +22,7 @@ export class UserService {
 
   async find(email: string) {
     const user = await this.repo.findOne({ where: { email } });
-    if (!user) {
-      throw new Error('User not found');
-    }
+
     return user;
   }
 
