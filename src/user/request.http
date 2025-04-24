@@ -1,5 +1,5 @@
 ### Find user by ID
-GET http://localhost:3000/auth/1
+POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
