@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
@@ -12,8 +12,13 @@ export class UserController {
     return this.userService.create(email, password);
   }
 
-  @Post('/:id')
-  updateUser(@Param('id') id: number, @Body() body: Partial<CreateUserDto>) {
-    return this.userService.update(id, body);
+  @Get('/:id')
+  findUser(@Param('id') id: string) {
+    return this.userService.findOne(parseInt(id));
+  }
+
+  @Get()
+  findUserByEmail(@Query('email') email: string) {
+    return this.userService.find(email);
   }
 }

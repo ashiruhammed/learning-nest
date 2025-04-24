@@ -1,8 +1,13 @@
-### Create a new user
-POST http://localhost:3000/auth/1
+### Find user by ID
+GET http://localhost:3000/auth/1
 content-type: application/json
 
 {
   "email": "hammedashiru89@gmail.co",
   "password": "asdlfkajsd"
 }
+
+
+### Find User by Email
+GET http://localhost:3000/auth?email=hammedashiru89@gmail.co
+content-type: application/json
